@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.twoendpoints.constant.Constants;
 import com.project.twoendpoints.entity.HelloWorld;
 
 @RestController
@@ -13,7 +14,7 @@ public class HelloWorldController {
 
 	@GetMapping(path = { "/hello-world", "/hello-world/{name}" })
 	public HelloWorld helloWorldPathVariable(@PathVariable Optional<String> name) {
-		StringBuilder helloWorld = new StringBuilder("Hello, World");
+		StringBuilder helloWorld = new StringBuilder(Constants.HELLO_WORLD);
 		if (name.isPresent()) {
 			Integer indexOfComma = helloWorld.indexOf(",");
 			helloWorld.deleteCharAt(indexOfComma);
